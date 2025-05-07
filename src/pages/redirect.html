@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Processing Order - Kingsmoke</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      padding: 40px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #d4af37;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: #333;
+    }
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #d4af37;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 30px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="loader"></div>
+    <h1>Processing Your Order</h1>
+    <p>Please wait while we process your order. You will be redirected automatically.</p>
+    <form id="google-form" method="POST" style="display:none;">
+      <!-- Form fields will be added by JavaScript -->
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get order data from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      // Get the form element
+      const form = document.getElementById('google-form');
+      
+      // Set the form action
+      const formId = '1FAIpQLScAZhY1roqPN2Rji-UwSQR3Cvc5D42dayi1GFwLxV_NB0Vptw';
+      form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
+      
+      // Create and append all form fields from URL parameters
+      for (const [key, value] of urlParams.entries()) {
+        if (key.startsWith('entry.')) {
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.name = key;
+          input.value = value;
+          form.appendChild(input);
+        }
+      }
+      
+      // Submit the form
+      setTimeout(() => {
+        form.submit();
+        
+        // Redirect back to receipt page after submission
+        setTimeout(() => {
+          window.location.href = 'receipt.html';
+        }, 2000);
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
