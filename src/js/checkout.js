@@ -46,9 +46,9 @@ function displayOrderSummary() {
   const total = subtotal + deliveryFee;
   
   // Update subtotal and total
-  subtotalElement.textContent = `₹${subtotal}`;
-  if (deliveryFeeElement) deliveryFeeElement.textContent = `₹${deliveryFee}`;
-  totalElement.textContent = `₹${total}`;
+  subtotalElement.textContent = `Rs.${subtotal}`;
+  if (deliveryFeeElement) deliveryFeeElement.textContent = `Rs.${deliveryFee}`;
+  totalElement.textContent = `Rs.${total}`;
   
   // Clear checkout items container
   checkoutItemsContainer.innerHTML = '';
@@ -64,7 +64,7 @@ function displayOrderSummary() {
         <p>Quantity: ${item.quantity}</p>
       </div>
       <div class="item-price">
-        <p>₹${item.price * item.quantity}</p>
+        <p>Rs.${item.price * item.quantity}</p>
       </div>
     `;
     
@@ -96,7 +96,7 @@ function handleCheckout(event) {
   
   // Format order details for Google Form
   const orderDetails = cart.map(item => 
-    `${item.name} (₹${item.price} x ${item.quantity} = ₹${item.price * item.quantity})`
+    `${item.name} (Rs.${item.price} x ${item.quantity} = Rs.${item.price * item.quantity})`
   ).join('\n');
   
   // Show loading state

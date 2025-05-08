@@ -117,7 +117,7 @@ const firebaseConfig = {
             </div>
             <div>
               <p><strong>Customer:</strong> ${order.customer.fullname}</p>
-              <p><strong>Total:</strong> ₹${order.total}</p>
+              <p><strong>Total:</strong> Rs.${order.total}</p>
               <button class="toggle-details" data-order-id="${orderId}">Show Details</button>
             </div>
             <div class="order-details" id="details-${orderId}">
@@ -145,17 +145,17 @@ const firebaseConfig = {
                       <tr>
                         <td>${item.name}</td>
                         <td>${item.quantity}</td>
-                        <td>₹${item.price}</td>
-                        <td>₹${item.price * item.quantity}</td>
+                        <td>Rs.${item.price}</td>
+                        <td>Rs.${item.price * item.quantity}</td>
                       </tr>
                     `).join('')}
                   </tbody>
                 </table>
               </div>
               <div class="order-summary">
-                <p><strong>Subtotal:</strong> ₹${order.subtotal}</p>
-                <p><strong>Delivery Fee:</strong> ₹${order.deliveryFee}</p>
-                <p><strong>Total:</strong> ₹${order.total}</p>
+                <p><strong>Subtotal:</strong> Rs.${order.subtotal}</p>
+                <p><strong>Delivery Fee:</strong> Rs.${order.deliveryFee}</p>
+                <p><strong>Total:</strong> Rs.${order.total}</p>
               </div>
             </div>
           `;
