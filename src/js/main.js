@@ -4,9 +4,9 @@ const products = [
       id: 1,
       name: "Gold Series Rolling Papers",
       description: "Our signature 24K gold-infused rolling papers, handcrafted for the ultimate luxury experience. Each pack contains 10 premium papers that burn slowly and evenly.",
-      price: 1200,
-      image: "https://via.placeholder.com/500x500",
-      collection: "gold",
+      price: 500,
+      image: "src/images/2.jpg",
+      collection: "classic",
       features: ["24K gold infused", "Ultra-thin", "Slow burning", "Premium packaging"],
       inStock: true
     },

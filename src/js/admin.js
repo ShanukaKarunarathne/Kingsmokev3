@@ -1,14 +1,4 @@
-// Firebase configuration - make sure this matches your firebase.js file
-const firebaseConfig = {
-    apiKey: "AIzaSyC6uqunNOc0sNGPzez85oCG-9bH-mY5hBA",
-    authDomain: "kingsmoke-9b2e7.firebaseapp.com",
-    projectId: "kingsmoke-9b2e7",
-    storageBucket: "kingsmoke-9b2e7.firebasestorage.app",
-    messagingSenderId: "19597800992",
-    appId: "1:19597800992:web:def2cf393483e8d12f6e45",
-    measurementId: "G-WGLRCY0K3J"
-  };
-  
+ 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
